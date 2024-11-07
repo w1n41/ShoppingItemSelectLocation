@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.shoppingitemselectlocation.screens.NavigationScreen
 import com.example.shoppingitemselectlocation.ui.theme.ShoppingItemSelectLocationTheme
 import com.example.shoppingitemselectlocation.viewmodels.LocationViewModel
@@ -22,8 +23,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ShoppingItemSelectLocationTheme {
-                val locationViewModel = LocationViewModel()
-                val shoppingItemsViewModel = ShoppingItemsViewModel()
+                val locationViewModel: LocationViewModel = viewModel()
+                val shoppingItemsViewModel: ShoppingItemsViewModel = viewModel()
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     NavigationScreen(shoppingItemsViewModel, locationViewModel, modifier = Modifier.padding(innerPadding))
                 }
